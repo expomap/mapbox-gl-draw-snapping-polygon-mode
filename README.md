@@ -3,6 +3,61 @@ Modo personalizado para o Mapbox GL Draw que adiciona a funcionalidade de desenh
 
 Esse modo é uma melhoria do já conhecido `snap_polygon` do [mhsattarian/mapbox-gl-draw-snap-mode](https://github.com/mhsattarian/mapbox-gl-draw-snap-mode), adicionando guias para vértices do polígono que você está desenhando atualmente, o que deixa mais fácil a criação de ângulos retos em um polígono.
 
+## Instalação
+`npm i @expomap/mapbox-gl-draw-snapping-polygon-mode`
+
+
+## Uso
+**Veja a demo abaixo para entender sobre o uso do módulo**
+
+* Importe os MapboxGL e o MapboxGLDraw
+```
+import { Map } from 'mapbox-gl'
+import mapboxGlDraw from '@mapbox/mapbox-gl-draw'
+````
+
+* Importe o modo `DrawPolygonSnap`
+```
+import DrawPolygonSnap, { DrawPolygonSnapModeStyles } from '@expomap/mapbox-gl-draw-snapping-polygon-mode';
+```
+
+* Crie o mapa
+```
+var map = new Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    zoom: 3.54883,
+    center: [-56, -16],
+    bearing: 0,
+    accessToken: [SUA_CHAVE]
+});
+```
+
+* Crie o objeto `Draw` adicionando o modo `DrawPolygonSnap`
+
+Você precisará configurar o `draw` com `userProperties: true` e adicionar os estilos personalizados com `styles: DrawPolygonSnapModeStyles` para as guias aparecerem.
+
+Se na sua aplicação, você já está usando estilos personalizados, você precisará mesclar ambos estilos manualmente
+```
+var modes = mapboxGlDraw.modes;
+
+modes.draw_polygon_snap = DrawPolygonSnap;
+
+var draw = new mapboxGlDraw({
+    modes: modes,
+    userProperties: true,
+    styles: DrawPolygonSnapModeStyles
+});
+
+map.addControl(draw);
+```
+
+* Ativar o modo 
+```
+draw.changeMode('draw_polygon_snap');
+```
+
+
 ## Demo
 
 ### HTML
@@ -30,7 +85,7 @@ Esse modo é uma melhoria do já conhecido `snap_polygon` do [mhsattarian/mapbox
 ```
 import { Map } from 'mapbox-gl'
 import mapboxGlDraw from '@mapbox/mapbox-gl-draw'
-import DrawPolygonCustom, { CustomDrawPolygonModeStyles } from '@expomap/mapbox-gl-draw-snapping-polygon-mode';
+import DrawPolygonSnap, { DrawPolygonSnapModeStyles } from '@expomap/mapbox-gl-draw-snapping-polygon-mode';
 
 var map = new Map({
     container: 'map',
@@ -38,23 +93,26 @@ var map = new Map({
     zoom: 3.54883,
     center: [-56, -16],
     bearing: 0,
-    accessToken: 'pk.eyJ1IjoidGhlZ2lzZGV2IiwiYSI6ImNqdGQ5dmd2MTEyaWk0YXF0NzZ1amhtOWMifQ.GuFE28BPyzAcHWejNLzuyw'
+    accessToken: [SUA_CHAVE]
 });
 
 var modes = mapboxGlDraw.modes;
 
-modes.draw_polygon_snap = DrawPolygonCustom;
+modes.draw_polygon_snap = DrawPolygonSnap;
 
 var draw = new mapboxGlDraw({
     modes: modes,
     userProperties: true,
-    styles: CustomDrawPolygonModeStyles
+    styles: DrawPolygonSnapModeStyles
 });
 
 map.addControl(draw);
 
 draw.changeMode('draw_polygon_snap');
-
 ```
 
 Você pode ver essa demo no ar [nesse link](https://codepen.io/fatorius/pen/oNrrWzM)
+
+
+## NPM
+[https://www.npmjs.com/package/@expomap/mapbox-gl-draw-snapping-polygon-mode](https://www.npmjs.com/package/@expomap/mapbox-gl-draw-snapping-polygon-mode)
