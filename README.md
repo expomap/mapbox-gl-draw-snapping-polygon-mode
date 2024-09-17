@@ -57,4 +57,4 @@ draw.changeMode('draw_polygon_snap');
 
 ```
 
-Você pode ver essa demo no ar [nesse link](https://codepen.io/fatorius/pen/oNrrWzM)
+Você pode ver essa demo no ar [nesse link](https://codepen.io/fatorius/full/oNrrWzM)
