@@ -1,0 +1,25 @@
+{
+  	"name": "@expomap/mapbox-gl-draw-snapping-polygon-mode",
+  	"version": "1.0.0",
+  	"description": "Modo personalizado para o Mapbox GL Draw que adiciona a funcionalidade de desenhar polígonos com snaping",
+  	"main": "src/index.js",
+  	"license": "MIT",
+  	"repository": {
+  	  	"type": "git",
+  	  	"url": "git+https://github.com/expomap/mapbox-gl-draw-snapping-polygon-mode.git"
+  	},
+  	"publishConfig": {
+  	  	"access": "public"
+  	},
+  	"type": "module",
+  	"private": false,
+  	"scripts": {
+  	  	"lint": "npx eslint ."
+  	},
+  	"devDependencies": {
+  	  	"eslint": "^9.10.0"
+  	},
+  	"dependencies": {
+  	  	"@mapbox/mapbox-gl-draw": "^1.4.3"
+  	}
+}
