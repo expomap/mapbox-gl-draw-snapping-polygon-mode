@@ -111,8 +111,7 @@ map.addControl(draw);
 draw.changeMode('draw_polygon_snap');
 ```
 
-Você pode ver essa demo no ar [nesse link](https://codepen.io/fatorius/pen/oNrrWzM)
-
+Você pode ver essa demo no ar [nesse link](https://codepen.io/fatorius/full/oNrrWzM)
 
 ## NPM
 [https://www.npmjs.com/package/@expomap/mapbox-gl-draw-snapping-polygon-mode](https://www.npmjs.com/package/@expomap/mapbox-gl-draw-snapping-polygon-mode)
